@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/artifacts")
+@RequestMapping("${api.endpoint.base-url}/artifacts")
 public class ArtifactController {
     private final ArtifactToArtifactDtoConverter artifactToArtifactDtoConverter;
     private final ArtifactDtoToArtifactConverter artifactDtoToArtifactConverter;
@@ -64,9 +64,7 @@ public class ArtifactController {
     @DeleteMapping("/{artifactId}")
     public Result deleteArtifact(@PathVariable String artifactId){
 
-      //  Artifact artifact = this.artifactService.findById(artifactId);
         this.artifactService.delete(artifactId);
-      //  ArtifactDto artifactDto = artifactToArtifactDtoConverter.convert(artifact);
 
 
         return new Result(true,StatusCode.Success,"Delete Success");

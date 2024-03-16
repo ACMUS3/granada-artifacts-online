@@ -1,6 +1,5 @@
 package io.acmus.granadaartifactsonline.system.exception;
 
-import io.acmus.granadaartifactsonline.artifact.ArtifactNotFoundException;
 import io.acmus.granadaartifactsonline.system.Result;
 import io.acmus.granadaartifactsonline.system.StatusCode;
 import org.springframework.http.HttpStatus;
@@ -18,8 +17,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
 
-    @ExceptionHandler({ArtifactNotFoundException.class})
-    Result handleArtifactNotFoundException(ArtifactNotFoundException ex) {
+    @ExceptionHandler({ObjectNotFoundException.class})
+    Result handleObjectNotFoundException(Exception ex) {
         return new Result(false, StatusCode.NOT_FOUND, ex.getMessage());
     }
 
