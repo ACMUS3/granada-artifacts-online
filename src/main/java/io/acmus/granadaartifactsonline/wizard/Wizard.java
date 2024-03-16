@@ -1,10 +1,7 @@
 package io.acmus.granadaartifactsonline.wizard;
 
 import io.acmus.granadaartifactsonline.artifact.Artifact;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +10,7 @@ import java.util.List;
 @Entity
 public class Wizard implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     @OneToMany(
@@ -54,5 +52,10 @@ public class Wizard implements Serializable {
 
     public Integer getNumberOfArtifacts() {
         return getArtifacts().size();
+    }
+
+    public void removeAllArtifacts() {
+        this.artifacts.stream().forEach(artifact -> artifact.setOwner(null));
+        this.artifacts = null;
     }
 }

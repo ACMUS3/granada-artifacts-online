@@ -1,6 +1,7 @@
 package io.acmus.granadaartifactsonline.artifact;
 
 import io.acmus.granadaartifactsonline.artifact.utils.IdWorker;
+import io.acmus.granadaartifactsonline.system.exception.ObjectNotFoundException;
 import io.acmus.granadaartifactsonline.wizard.Wizard;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -107,8 +108,8 @@ class ArtifactServiceTest {
 
         // Then
         assertThat(thrown)
-                .isInstanceOf(ArtifactNotFoundException.class)
-                .hasMessage("Couldn't find artifact with id 458151525154");
+                .isInstanceOf(ObjectNotFoundException.class)
+                .hasMessage("Could not find artifact with Id 458151525154");
 
         verify(artifactRepository, times(1)).findById("458151525154");
     }
@@ -197,7 +198,7 @@ class ArtifactServiceTest {
         given(this.artifactRepository.findById("1250808601744904192")).willReturn(Optional.empty());
 
         // When
-        assertThrows(ArtifactNotFoundException.class, () -> {
+        assertThrows(ObjectNotFoundException.class, () -> {
             this.artifactService.update("1250808601744904192", update);
         });
 
@@ -235,7 +236,7 @@ class ArtifactServiceTest {
         given(artifactRepository.findById("1250808601744904192")).willReturn(Optional.empty());
 
         // When
-        assertThrows(ArtifactNotFoundException.class,()->{
+        assertThrows(ObjectNotFoundException.class,()->{
             this.artifactService.delete("1250808601744904192");
         });
         // Then
