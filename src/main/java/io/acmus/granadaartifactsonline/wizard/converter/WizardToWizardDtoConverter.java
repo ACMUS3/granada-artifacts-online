@@ -1,7 +1,7 @@
 package io.acmus.granadaartifactsonline.wizard.converter;
 
 import io.acmus.granadaartifactsonline.wizard.Wizard;
-import io.acmus.granadaartifactsonline.wizard.WizardDto;
+import io.acmus.granadaartifactsonline.wizard.dto.WizardDto;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

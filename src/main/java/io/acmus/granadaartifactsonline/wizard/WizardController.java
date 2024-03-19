@@ -4,6 +4,7 @@ import io.acmus.granadaartifactsonline.system.Result;
 import io.acmus.granadaartifactsonline.system.StatusCode;
 import io.acmus.granadaartifactsonline.wizard.converter.WizardDtoToWizardConverter;
 import io.acmus.granadaartifactsonline.wizard.converter.WizardToWizardDtoConverter;
+import io.acmus.granadaartifactsonline.wizard.dto.WizardDto;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +39,7 @@ public class WizardController {
         List<WizardDto> wizardDtoList = wizardList.stream()
                 .map(this.wizardToWizardDtoConverter::convert)
                 .toList();
-         return new Result(true, StatusCode.Success, "Find All Success", wizardDtoList);
+        return new Result(true, StatusCode.Success, "Find All Success", wizardDtoList);
     }
 
     @PostMapping
@@ -70,8 +71,26 @@ public class WizardController {
 
     }
 
+    @PutMapping("/{wizardId}/artifacts/{artifactId}")
+    public Result assignArtifact(
+            @PathVariable Integer wizardId,
+            @PathVariable String artifactId) {
+
+        this.wizardService.assignArtifact(wizardId, artifactId);
+
+        return new Result(true, StatusCode.Success, "Artifact Assignment Success");
+    }
+
 
 }
+
+
+
+
+
+
+
+
 
 
 

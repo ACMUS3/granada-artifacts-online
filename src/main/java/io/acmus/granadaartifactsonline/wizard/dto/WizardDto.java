@@ -1,4 +1,4 @@
-package io.acmus.granadaartifactsonline.wizard;
+package io.acmus.granadaartifactsonline.wizard.dto;
 import jakarta.validation.constraints.NotEmpty;
 
 

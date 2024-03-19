@@ -1,6 +1,6 @@
-package io.acmus.granadaartifactsonline.artifact;
+package io.acmus.granadaartifactsonline.artifact.dto;
 
-import io.acmus.granadaartifactsonline.wizard.WizardDto;
+import io.acmus.granadaartifactsonline.wizard.dto.WizardDto;
 import jakarta.validation.constraints.NotEmpty;
 
 public record ArtifactDto(
