@@ -1,6 +1,7 @@
 package io.acmus.granadaartifactsonline.artifact;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.acmus.granadaartifactsonline.artifact.dto.ArtifactDto;
 import io.acmus.granadaartifactsonline.system.StatusCode;
 import io.acmus.granadaartifactsonline.system.exception.ObjectNotFoundException;
 import org.hamcrest.Matchers;
@@ -279,23 +280,3 @@ class ArtifactControllerTest {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

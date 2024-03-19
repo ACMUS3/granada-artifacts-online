@@ -2,6 +2,7 @@ package io.acmus.granadaartifactsonline.artifact;
 
 import io.acmus.granadaartifactsonline.artifact.converter.ArtifactDtoToArtifactConverter;
 import io.acmus.granadaartifactsonline.artifact.converter.ArtifactToArtifactDtoConverter;
+import io.acmus.granadaartifactsonline.artifact.dto.ArtifactDto;
 import io.acmus.granadaartifactsonline.system.Result;
 import io.acmus.granadaartifactsonline.system.StatusCode;
 import jakarta.validation.Valid;
