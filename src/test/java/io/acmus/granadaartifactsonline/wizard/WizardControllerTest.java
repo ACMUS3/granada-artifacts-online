@@ -113,8 +113,8 @@ class WizardControllerTest {
         this.mockMvc.perform(get(this.baseUrl + "/wizards/1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Find One Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Find One SUCCESS"))
                 .andExpect(jsonPath("$.data.id").value(1))
                 .andExpect(jsonPath("$.data.name").value("Albus Dumbledore"));
     }
@@ -142,8 +142,8 @@ class WizardControllerTest {
         this.mockMvc.perform(get(this.baseUrl + "/wizards/")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Find All Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Find All SUCCESS"))
                 .andExpect(jsonPath("$.data", Matchers.hasSize(this.wizards.size())))
                 .andExpect(jsonPath("$.data[0].id").value(1))
                 .andExpect(jsonPath("$.data[0].name").value("Albus Dumbledore"))
@@ -173,8 +173,8 @@ class WizardControllerTest {
                         .content(json)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Add Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Add SUCCESS"))
                 .andExpect(jsonPath("$.data.id").isNotEmpty())
                 .andExpect(jsonPath("$.data.name").value("Hermione Granger"));
     }
@@ -195,8 +195,8 @@ class WizardControllerTest {
         // When and then
         this.mockMvc.perform(put(this.baseUrl + "/wizards/1").contentType(MediaType.APPLICATION_JSON).content(json).accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Update Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Update SUCCESS"))
                 .andExpect(jsonPath("$.data.id").value(1))
                 .andExpect(jsonPath("$.data.name").value("Updated wizard name"));
     }
@@ -228,8 +228,8 @@ class WizardControllerTest {
         // When and then
         this.mockMvc.perform(delete(this.baseUrl + "/wizards/3").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Delete Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Delete SUCCESS"))
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 
@@ -255,8 +255,8 @@ class WizardControllerTest {
         this.mockMvc.perform(put(this.baseUrl + "/wizards/2/artifacts/1250808601744904191")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))
-                .andExpect(jsonPath("$.code").value(StatusCode.Success))
-                .andExpect(jsonPath("$.message").value("Artifact Assignment Success"))
+                .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
+                .andExpect(jsonPath("$.message").value("Artifact Assignment SUCCESS"))
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 

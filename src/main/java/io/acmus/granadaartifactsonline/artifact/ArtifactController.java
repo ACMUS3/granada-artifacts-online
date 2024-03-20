@@ -28,7 +28,7 @@ public class ArtifactController {
     public Result findArtifactById(@PathVariable("artifactId") String artifactId) {
         Artifact found = this.artifactService.findById(artifactId);
         ArtifactDto artifactDto = artifactToArtifactDtoConverter.convert(found);
-        return new Result(true, StatusCode.Success, "Find One Success", artifactDto);
+        return new Result(true, StatusCode.SUCCESS, "Find One SUCCESS", artifactDto);
     }
 
     @GetMapping("/")
@@ -37,7 +37,7 @@ public class ArtifactController {
         List<ArtifactDto> artifactDtoList = artifactList.stream()
                 .map(this.artifactToArtifactDtoConverter::convert)
                 .toList();
-        return new Result(true, StatusCode.Success, "Find All Success", artifactDtoList);
+        return new Result(true, StatusCode.SUCCESS, "Find All SUCCESS", artifactDtoList);
     }
 
     @PostMapping
@@ -47,7 +47,7 @@ public class ArtifactController {
         assert artifact != null;
         Artifact savedArtifact = this.artifactService.save(artifact);
         ArtifactDto savedArtifactDto = artifactToArtifactDtoConverter.convert(savedArtifact);
-        return new Result(true, StatusCode.Success, "Add Success", savedArtifactDto);
+        return new Result(true, StatusCode.SUCCESS, "Add SUCCESS", savedArtifactDto);
     }
 
     @PutMapping("/{artifactId}")
@@ -59,7 +59,7 @@ public class ArtifactController {
         Artifact updatedArtifact = this.artifactService.update(artifactId, artifact);
         ArtifactDto updatedArtifactDto = this.artifactToArtifactDtoConverter.convert(updatedArtifact);
 
-        return new Result(true,StatusCode.Success,"Update Success",updatedArtifactDto);
+        return new Result(true,StatusCode.SUCCESS,"Update SUCCESS",updatedArtifactDto);
     }
 
     @DeleteMapping("/{artifactId}")
@@ -68,7 +68,7 @@ public class ArtifactController {
         this.artifactService.delete(artifactId);
 
 
-        return new Result(true,StatusCode.Success,"Delete Success");
+        return new Result(true,StatusCode.SUCCESS,"Delete SUCCESS");
     }
 
 

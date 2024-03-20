@@ -2,6 +2,8 @@ package io.acmus.granadaartifactsonline.system;
 
 import io.acmus.granadaartifactsonline.artifact.Artifact;
 import io.acmus.granadaartifactsonline.artifact.ArtifactRepository;
+import io.acmus.granadaartifactsonline.granadauser.GranadaUser;
+import io.acmus.granadaartifactsonline.granadauser.UserService;
 import io.acmus.granadaartifactsonline.wizard.Wizard;
 import io.acmus.granadaartifactsonline.wizard.WizardRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -12,12 +14,14 @@ public class DBDataInitializer implements CommandLineRunner {
     private final ArtifactRepository artifactRepository;
 
     private final WizardRepository wizardRepository;
+    private final UserService userService;
 
     public DBDataInitializer(
-            ArtifactRepository artifactRepository, WizardRepository wizardRepository) {
+            ArtifactRepository artifactRepository, WizardRepository wizardRepository, UserService userService) {
 
         this.artifactRepository = artifactRepository;
         this.wizardRepository = wizardRepository;
+        this.userService = userService;
     }
 
     @Override
@@ -80,6 +84,32 @@ public class DBDataInitializer implements CommandLineRunner {
         wizardRepository.save(w3);
 
         artifactRepository.save(a6);
+
+        // Create some users.
+        GranadaUser u1 = new GranadaUser();
+        u1.setId(1);
+        u1.setUsername("john");
+        u1.setPassword("123456");
+        u1.setEnabled(true);
+        u1.setRoles("admin user");
+
+        GranadaUser u2 = new GranadaUser();
+        u2.setId(2);
+        u2.setUsername("eric");
+        u2.setPassword("654321");
+        u2.setEnabled(true);
+        u2.setRoles("user");
+
+        GranadaUser u3 = new GranadaUser();
+        u3.setId(3);
+        u3.setUsername("tom");
+        u3.setPassword("qwerty");
+        u3.setEnabled(false);
+        u3.setRoles("user");
+
+        this.userService.save(u1);
+        this.userService.save(u2);
+        this.userService.save(u3);
 
 
 

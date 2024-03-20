@@ -1,7 +1,7 @@
 package io.acmus.granadaartifactsonline.system;
 
 public class StatusCode {
-    public static final int Success = 200;
+    public static final int SUCCESS = 200;
     public static final int INVALID_ARGUMENT = 400;
     public static final int UNAUTHORIZED = 401;
     public static final int FORBIDDEN = 403;
