@@ -30,7 +30,7 @@ public class WizardController {
     public Result findWizardById(@PathVariable Integer wizardId) {
         Wizard wizard = this.wizardService.findById(wizardId);
         WizardDto wizardDto = this.wizardToWizardDtoConverter.convert(wizard);
-        return new Result(true, StatusCode.Success, "Find One Success", wizardDto);
+        return new Result(true, StatusCode.SUCCESS, "Find One SUCCESS", wizardDto);
     }
 
     @GetMapping("/")
@@ -39,7 +39,7 @@ public class WizardController {
         List<WizardDto> wizardDtoList = wizardList.stream()
                 .map(this.wizardToWizardDtoConverter::convert)
                 .toList();
-        return new Result(true, StatusCode.Success, "Find All Success", wizardDtoList);
+        return new Result(true, StatusCode.SUCCESS, "Find All SUCCESS", wizardDtoList);
     }
 
     @PostMapping
@@ -47,7 +47,7 @@ public class WizardController {
         Wizard newWizard = this.wizardDtoToWizardConverter.convert(wizardDto);
         Wizard savedWizard = this.wizardService.save(newWizard);
         WizardDto savedWizardDto = this.wizardToWizardDtoConverter.convert(savedWizard);
-        return new Result(true, StatusCode.Success, "Add Success", savedWizardDto);
+        return new Result(true, StatusCode.SUCCESS, "Add SUCCESS", savedWizardDto);
 
 
     }
@@ -59,7 +59,7 @@ public class WizardController {
         Wizard update = this.wizardDtoToWizardConverter.convert(wizardDto);
         Wizard updatedWizard = this.wizardService.update(wizardId, update);
         WizardDto updatedWizardDto = this.wizardToWizardDtoConverter.convert(updatedWizard);
-        return new Result(true, StatusCode.Success, "Update Success", updatedWizardDto);
+        return new Result(true, StatusCode.SUCCESS, "Update SUCCESS", updatedWizardDto);
 
     }
 
@@ -67,7 +67,7 @@ public class WizardController {
     @DeleteMapping("/{wizardId}")
     public Result deleteWizard(@PathVariable Integer wizardId) {
         this.wizardService.delete(wizardId);
-        return new Result(true, StatusCode.Success, "Delete Success");
+        return new Result(true, StatusCode.SUCCESS, "Delete SUCCESS");
 
     }
 
@@ -78,7 +78,7 @@ public class WizardController {
 
         this.wizardService.assignArtifact(wizardId, artifactId);
 
-        return new Result(true, StatusCode.Success, "Artifact Assignment Success");
+        return new Result(true, StatusCode.SUCCESS, "Artifact Assignment SUCCESS");
     }
 
 
